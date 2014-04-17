@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 15-04-2014 a las 15:45:28
+-- Tiempo de generación: 16-04-2014 a las 23:21:41
 -- Versión del servidor: 5.1.41
 -- Versión de PHP: 5.3.1
 
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `bf_activities` (
   `created_on` datetime NOT NULL,
   `deleted` tinyint(12) NOT NULL DEFAULT '0',
   PRIMARY KEY (`activity_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=64 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=70 ;
 
 --
 -- Volcar la base de datos para la tabla `bf_activities`
@@ -102,7 +102,13 @@ INSERT INTO `bf_activities` (`activity_id`, `user_id`, `activity`, `module`, `cr
 (60, 1, 'App settings saved from: 127.0.0.1', 'core', '2014-04-15 01:46:15', 0),
 (61, 3, 'logged in from: 192.168.43.1', 'users', '2014-04-15 02:14:22', 0),
 (62, 3, 'logged in from: 127.0.0.1', 'users', '2014-04-15 02:16:05', 0),
-(63, 1, 'logged in from: 127.0.0.1', 'users', '2014-04-15 02:19:08', 0);
+(63, 1, 'logged in from: 127.0.0.1', 'users', '2014-04-15 02:19:08', 0),
+(64, 1, 'inicio de sesión desde: 127.0.0.1', 'users', '2014-04-15 16:03:57', 0),
+(65, 1, 'inicio de sesión desde: 127.0.0.1', 'users', '2014-04-16 22:13:32', 0),
+(66, 1, 'Módulo creado: Franjas : 127.0.0.1', 'modulebuilder', '2014-04-16 22:32:05', 0),
+(67, 1, 'Módulo creado: No Laboral : 127.0.0.1', 'modulebuilder', '2014-04-16 22:58:02', 0),
+(68, 1, 'Módulo eliminado: No_Laboral : 127.0.0.1', 'builder', '2014-04-16 23:02:40', 0),
+(69, 1, 'Módulo creado: No Laborales : 127.0.0.1', 'modulebuilder', '2014-04-16 23:11:15', 0);
 
 -- --------------------------------------------------------
 
@@ -393,6 +399,31 @@ CREATE TABLE IF NOT EXISTS `bf_email_queue` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `bf_franjas`
+--
+
+CREATE TABLE IF NOT EXISTS `bf_franjas` (
+  `fid` int(11) NOT NULL AUTO_INCREMENT,
+  `mid` int(4) NOT NULL,
+  `horaim` time NOT NULL,
+  `horafm` time NOT NULL,
+  `horait` time NOT NULL,
+  `horaft` time NOT NULL,
+  `horain` time NOT NULL,
+  `horafn` time NOT NULL,
+  `dia` tinyint(1) NOT NULL,
+  `mnt` tinyint(1) NOT NULL,
+  PRIMARY KEY (`fid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+--
+-- Volcar la base de datos para la tabla `bf_franjas`
+--
+
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `bf_login_attempts`
 --
 
@@ -402,10 +433,30 @@ CREATE TABLE IF NOT EXISTS `bf_login_attempts` (
   `login` varchar(50) NOT NULL,
   `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Volcar la base de datos para la tabla `bf_login_attempts`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `bf_no_laborales`
+--
+
+CREATE TABLE IF NOT EXISTS `bf_no_laborales` (
+  `nid` int(11) NOT NULL AUTO_INCREMENT,
+  `mid` int(4) NOT NULL,
+  `inicio` date NOT NULL DEFAULT '0000-00-00',
+  `final` time NOT NULL,
+  `detalle` varchar(255) NOT NULL,
+  PRIMARY KEY (`nid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+--
+-- Volcar la base de datos para la tabla `bf_no_laborales`
 --
 
 
@@ -421,7 +472,7 @@ CREATE TABLE IF NOT EXISTS `bf_permissions` (
   `description` varchar(100) NOT NULL,
   `status` enum('active','inactive','deleted') NOT NULL DEFAULT 'active',
   PRIMARY KEY (`permission_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=68 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=116 ;
 
 --
 -- Volcar la base de datos para la tabla `bf_permissions`
@@ -489,7 +540,39 @@ INSERT INTO `bf_permissions` (`permission_id`, `name`, `description`, `status`) 
 (64, 'Turnos.Developer.Create', '', 'active'),
 (65, 'Turnos.Developer.Edit', '', 'active'),
 (66, 'Turnos.Developer.Delete', '', 'active'),
-(67, 'Permissions.Visitante.Manage', 'To manage the access control permissions for the Visitante role.', 'active');
+(67, 'Permissions.Visitante.Manage', 'To manage the access control permissions for the Visitante role.', 'active'),
+(68, 'Franjas.Content.View', '', 'active'),
+(69, 'Franjas.Content.Create', '', 'active'),
+(70, 'Franjas.Content.Edit', '', 'active'),
+(71, 'Franjas.Content.Delete', '', 'active'),
+(72, 'Franjas.Reports.View', '', 'active'),
+(73, 'Franjas.Reports.Create', '', 'active'),
+(74, 'Franjas.Reports.Edit', '', 'active'),
+(75, 'Franjas.Reports.Delete', '', 'active'),
+(76, 'Franjas.Settings.View', '', 'active'),
+(77, 'Franjas.Settings.Create', '', 'active'),
+(78, 'Franjas.Settings.Edit', '', 'active'),
+(79, 'Franjas.Settings.Delete', '', 'active'),
+(80, 'Franjas.Developer.View', '', 'active'),
+(81, 'Franjas.Developer.Create', '', 'active'),
+(82, 'Franjas.Developer.Edit', '', 'active'),
+(83, 'Franjas.Developer.Delete', '', 'active'),
+(110, 'No_Laborales.Settings.Edit', '', 'active'),
+(109, 'No_Laborales.Settings.Create', '', 'active'),
+(108, 'No_Laborales.Settings.View', '', 'active'),
+(107, 'No_Laborales.Reports.Delete', '', 'active'),
+(106, 'No_Laborales.Reports.Edit', '', 'active'),
+(105, 'No_Laborales.Reports.Create', '', 'active'),
+(104, 'No_Laborales.Reports.View', '', 'active'),
+(103, 'No_Laborales.Content.Delete', '', 'active'),
+(102, 'No_Laborales.Content.Edit', '', 'active'),
+(101, 'No_Laborales.Content.Create', '', 'active'),
+(100, 'No_Laborales.Content.View', '', 'active'),
+(111, 'No_Laborales.Settings.Delete', '', 'active'),
+(112, 'No_Laborales.Developer.View', '', 'active'),
+(113, 'No_Laborales.Developer.Create', '', 'active'),
+(114, 'No_Laborales.Developer.Edit', '', 'active'),
+(115, 'No_Laborales.Developer.Delete', '', 'active');
 
 -- --------------------------------------------------------
 
@@ -599,6 +682,38 @@ INSERT INTO `bf_role_permissions` (`role_id`, `permission_id`) VALUES
 (1, 65),
 (1, 66),
 (1, 67),
+(1, 68),
+(1, 69),
+(1, 70),
+(1, 71),
+(1, 72),
+(1, 73),
+(1, 74),
+(1, 75),
+(1, 76),
+(1, 77),
+(1, 78),
+(1, 79),
+(1, 80),
+(1, 81),
+(1, 82),
+(1, 83),
+(1, 100),
+(1, 101),
+(1, 102),
+(1, 103),
+(1, 104),
+(1, 105),
+(1, 106),
+(1, 107),
+(1, 108),
+(1, 109),
+(1, 110),
+(1, 111),
+(1, 112),
+(1, 113),
+(1, 114),
+(1, 115),
 (2, 2),
 (2, 3),
 (6, 2),
@@ -635,7 +750,9 @@ CREATE TABLE IF NOT EXISTS `bf_schema_version` (
 
 INSERT INTO `bf_schema_version` (`type`, `version`) VALUES
 ('core', 37),
-('turnos_', 2);
+('turnos_', 2),
+('franjas_', 2),
+('no_laborales_', 2);
 
 -- --------------------------------------------------------
 
@@ -855,7 +972,7 @@ CREATE TABLE IF NOT EXISTS `bf_users` (
 --
 
 INSERT INTO `bf_users` (`id`, `role_id`, `email`, `username`, `password_hash`, `reset_hash`, `last_login`, `last_ip`, `created_on`, `deleted`, `reset_by`, `banned`, `ban_message`, `display_name`, `display_name_changed`, `timezone`, `language`, `active`, `activate_hash`, `password_iterations`, `force_password_reset`) VALUES
-(1, 1, 'situmo@situmo.com.ar', 'situmo', '$2a$08$D9g3e6gDXHZx8EFKtGCUtupeDSIQZzlJd3aA4RqxMgb9fLL7FC9PK', NULL, '2014-04-15 02:19:08', '127.0.0.1', '2014-04-14 00:19:07', 0, NULL, 0, NULL, 'situmo', NULL, 'UM3', 'spanish_am', 1, '', 8, 0),
+(1, 1, 'situmo@situmo.com.ar', 'situmo', '$2a$08$D9g3e6gDXHZx8EFKtGCUtupeDSIQZzlJd3aA4RqxMgb9fLL7FC9PK', NULL, '2014-04-16 22:13:32', '127.0.0.1', '2014-04-14 00:19:07', 0, NULL, 0, NULL, 'situmo', NULL, 'UM3', 'spanish_am', 1, '', 8, 0),
 (2, 1, 'admin@mybonfire.com', 'admin', '$2a$08$wSORTXWcaX/OZWeXXFN/ROBUORobgIKmIIP6EJ.k4KnnKGk.2PYq2', NULL, '2014-04-15 00:31:05', '127.0.0.1', '2014-04-14 00:19:12', 0, NULL, 0, NULL, 'admin', NULL, 'UM6', 'english', 1, '', 0, 0),
 (3, 7, 'visitante@situmo.com.ar', 'visitante', '$2a$08$pKVBgYibsCdgOP772iUPW.X7SoV2rLNbu/qjGLdhDTU0JjlY9x6W2', NULL, '2014-04-15 02:16:05', '127.0.0.1', '2014-04-15 01:13:49', 0, NULL, 0, NULL, 'Visitante', NULL, 'UM3', 'spanish_am', 1, '', 8, 0);
 
