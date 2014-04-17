@@ -34,11 +34,7 @@ CREATE TABLE IF NOT EXISTS `bf_activities` (
   `created_on` datetime NOT NULL,
   `deleted` tinyint(12) NOT NULL DEFAULT '0',
   PRIMARY KEY (`activity_id`)
-<<<<<<< HEAD
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=70 ;
-=======
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=74 ;
->>>>>>> c8d8ed0eeac2863788e596b7f2efb73bb9c664dc
 
 --
 -- Volcado de datos para la tabla `bf_activities`
@@ -113,7 +109,7 @@ INSERT INTO `bf_activities` (`activity_id`, `user_id`, `activity`, `module`, `cr
 (66, 1, 'Módulo creado: Franjas : 127.0.0.1', 'modulebuilder', '2014-04-16 22:32:05', 0),
 (67, 1, 'Módulo creado: No Laboral : 127.0.0.1', 'modulebuilder', '2014-04-16 22:58:02', 0),
 (68, 1, 'Módulo eliminado: No_Laboral : 127.0.0.1', 'builder', '2014-04-16 23:02:40', 0),
-(69, 1, 'Módulo creado: No Laborales : 127.0.0.1', 'modulebuilder', '2014-04-16 23:11:15', 0);
+(69, 1, 'Módulo creado: No Laborales : 127.0.0.1', 'modulebuilder', '2014-04-16 23:11:15', 0),
 (70, 1, 'inicio de sesión desde: 127.0.0.1', 'users', '2014-04-16 21:55:12', 0),
 (71, 1, 'inicio de sesión desde: 127.0.0.1', 'users', '2014-04-16 23:55:45', 0),
 (72, 1, 'inicio de sesión desde: 127.0.0.1', 'users', '2014-04-17 00:13:26', 0),
@@ -577,7 +573,7 @@ INSERT INTO `bf_permissions` (`permission_id`, `name`, `description`, `status`) 
 (112, 'No_Laborales.Developer.View', '', 'active'),
 (113, 'No_Laborales.Developer.Create', '', 'active'),
 (114, 'No_Laborales.Developer.Edit', '', 'active'),
-(115, 'No_Laborales.Developer.Delete', '', 'active');
+(115, 'No_Laborales.Developer.Delete', '', 'active'),
 (116, 'Permissions.Paciente.Manage', 'To manage the access control permissions for the Paciente role.', 'active'),
 (117, 'Permissions.Médico.Manage', 'To manage the access control permissions for the Médico role.', 'active'),
 (118, 'Permissions.Clínica.Manage', 'To manage the access control permissions for the Clínica role.', 'active'),
