@@ -174,7 +174,7 @@ $lang['bf_context_content'] = 'Contenido';
 $lang['bf_context_reports'] = 'Reportes';
 $lang['bf_context_settings'] = 'Configuraciones';
 $lang['bf_context_developer'] = 'Desarrollo';
-
+$lang['bf_context_gestion'] = 'Gestión';
 //--------------------------------------------------------------------
 // Activities
 //--------------------------------------------------------------------
