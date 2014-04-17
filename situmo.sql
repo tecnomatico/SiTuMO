@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 3.2.4
+-- version 4.1.6
 -- http://www.phpmyadmin.net
 --
--- Servidor: localhost
--- Tiempo de generación: 16-04-2014 a las 23:21:41
--- Versión del servidor: 5.1.41
--- Versión de PHP: 5.3.1
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 17-04-2014 a las 04:17:33
+-- Versión del servidor: 5.5.36
+-- Versión de PHP: 5.4.25
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -33,10 +34,14 @@ CREATE TABLE IF NOT EXISTS `bf_activities` (
   `created_on` datetime NOT NULL,
   `deleted` tinyint(12) NOT NULL DEFAULT '0',
   PRIMARY KEY (`activity_id`)
+<<<<<<< HEAD
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=70 ;
+=======
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=74 ;
+>>>>>>> c8d8ed0eeac2863788e596b7f2efb73bb9c664dc
 
 --
--- Volcar la base de datos para la tabla `bf_activities`
+-- Volcado de datos para la tabla `bf_activities`
 --
 
 INSERT INTO `bf_activities` (`activity_id`, `user_id`, `activity`, `module`, `created_on`, `deleted`) VALUES
@@ -109,6 +114,16 @@ INSERT INTO `bf_activities` (`activity_id`, `user_id`, `activity`, `module`, `cr
 (67, 1, 'Módulo creado: No Laboral : 127.0.0.1', 'modulebuilder', '2014-04-16 22:58:02', 0),
 (68, 1, 'Módulo eliminado: No_Laboral : 127.0.0.1', 'builder', '2014-04-16 23:02:40', 0),
 (69, 1, 'Módulo creado: No Laborales : 127.0.0.1', 'modulebuilder', '2014-04-16 23:11:15', 0);
+(70, 1, 'inicio de sesión desde: 127.0.0.1', 'users', '2014-04-16 21:55:12', 0),
+(71, 1, 'inicio de sesión desde: 127.0.0.1', 'users', '2014-04-16 23:55:45', 0),
+(72, 1, 'inicio de sesión desde: 127.0.0.1', 'users', '2014-04-17 00:13:26', 0),
+(73, 1, 'crearon uno nuevo Paciente: Paciente', 'users', '2014-04-17 01:28:39', 0),
+(74, 1, 'crearon uno nuevo Médico: Médico', 'users', '2014-04-17 01:29:43', 0),
+(75, 1, 'crearon uno nuevo Clínica: Clínica', 'users', '2014-04-17 01:30:46', 0),
+(76, 1, 'Módulo creado: Medicos : 127.0.0.1', 'modulebuilder', '2014-04-17 03:52:06', 0),
+(77, 1, 'Módulo creado: Medicos : 127.0.0.1', 'modulebuilder', '2014-04-17 03:52:19', 0),
+(78, 1, 'Módulo creado: Clinicas : 127.0.0.1', 'modulebuilder', '2014-04-17 03:53:22', 0),
+(79, 1, 'Módulo creado: Clinicas : 127.0.0.1', 'modulebuilder', '2014-04-17 03:53:30', 0);
 
 -- --------------------------------------------------------
 
@@ -126,7 +141,7 @@ CREATE TABLE IF NOT EXISTS `bf_countries` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- Volcar la base de datos para la tabla `bf_countries`
+-- Volcado de datos para la tabla `bf_countries`
 --
 
 INSERT INTO `bf_countries` (`iso`, `name`, `printable_name`, `iso3`, `numcode`) VALUES
@@ -391,11 +406,6 @@ CREATE TABLE IF NOT EXISTS `bf_email_queue` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
---
--- Volcar la base de datos para la tabla `bf_email_queue`
---
-
-
 -- --------------------------------------------------------
 
 --
@@ -435,11 +445,6 @@ CREATE TABLE IF NOT EXISTS `bf_login_attempts` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
---
--- Volcar la base de datos para la tabla `bf_login_attempts`
---
-
-
 -- --------------------------------------------------------
 
 --
@@ -475,7 +480,7 @@ CREATE TABLE IF NOT EXISTS `bf_permissions` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=116 ;
 
 --
--- Volcar la base de datos para la tabla `bf_permissions`
+-- Volcado de datos para la tabla `bf_permissions`
 --
 
 INSERT INTO `bf_permissions` (`permission_id`, `name`, `description`, `status`) VALUES
@@ -573,6 +578,18 @@ INSERT INTO `bf_permissions` (`permission_id`, `name`, `description`, `status`) 
 (113, 'No_Laborales.Developer.Create', '', 'active'),
 (114, 'No_Laborales.Developer.Edit', '', 'active'),
 (115, 'No_Laborales.Developer.Delete', '', 'active');
+(116, 'Permissions.Paciente.Manage', 'To manage the access control permissions for the Paciente role.', 'active'),
+(117, 'Permissions.Médico.Manage', 'To manage the access control permissions for the Médico role.', 'active'),
+(118, 'Permissions.Clínica.Manage', 'To manage the access control permissions for the Clínica role.', 'active'),
+(119, 'Site.Gestion.View', 'Allow user to view the Gestion Context.', 'active'),
+(120, 'Medicos.Gestion.View', '', 'active'),
+(121, 'Medicos.Gestion.Create', '', 'active'),
+(122, 'Medicos.Gestion.Edit', '', 'active'),
+(123, 'Medicos.Gestion.Delete', '', 'active'),
+(124, 'Clinicas.Gestion.View', '', 'active'),
+(125, 'Clinicas.Gestion.Create', '', 'active'),
+(126, 'Clinicas.Gestion.Edit', '', 'active'),
+(127, 'Clinicas.Gestion.Delete', '', 'active');
 
 -- --------------------------------------------------------
 
@@ -590,18 +607,21 @@ CREATE TABLE IF NOT EXISTS `bf_roles` (
   `deleted` int(1) NOT NULL DEFAULT '0',
   `default_context` varchar(255) NOT NULL DEFAULT 'content',
   PRIMARY KEY (`role_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
 --
--- Volcar la base de datos para la tabla `bf_roles`
+-- Volcado de datos para la tabla `bf_roles`
 --
 
 INSERT INTO `bf_roles` (`role_id`, `role_name`, `description`, `default`, `can_delete`, `login_destination`, `deleted`, `default_context`) VALUES
-(1, 'Administrator', 'Has full control over every aspect of the site.', 0, 0, '', 0, 'content'),
+(1, 'Administrador', 'Has full control over every aspect of the site.', 0, 0, '', 0, 'content'),
 (2, 'Editor', 'Can handle day-to-day management, but does not have full power.', 0, 1, '', 0, 'content'),
 (4, 'User', 'This is the default user with access to login.', 1, 0, '', 0, 'content'),
 (6, 'Developer', 'Developers typically are the only ones that can access the developer tools. Otherwise identical to Administrators, at least until the site is handed off.', 0, 1, '', 0, 'content'),
-(7, 'Visitante', 'Usuarios no registrados', 0, 1, 'admin/content/turnos', 0, 'content');
+(7, 'Visitante', 'Usuarios no registrados', 0, 1, 'admin/content/turnos', 0, 'content'),
+(8, 'Paciente', 'Persona que reserva turnos.', 1, 1, '', 0, 'content'),
+(9, 'Médico', 'Persona que se encarga de agendar sus turnos para poder ser resevados.', 0, 1, '', 0, 'content'),
+(10, 'Clínica', 'Institución que tiene médicos que registran sus turnos para ser reservados.', 0, 1, '', 0, 'content');
 
 -- --------------------------------------------------------
 
@@ -616,7 +636,7 @@ CREATE TABLE IF NOT EXISTS `bf_role_permissions` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- Volcar la base de datos para la tabla `bf_role_permissions`
+-- Volcado de datos para la tabla `bf_role_permissions`
 --
 
 INSERT INTO `bf_role_permissions` (`role_id`, `permission_id`) VALUES
@@ -745,14 +765,16 @@ CREATE TABLE IF NOT EXISTS `bf_schema_version` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- Volcar la base de datos para la tabla `bf_schema_version`
+-- Volcado de datos para la tabla `bf_schema_version`
 --
 
 INSERT INTO `bf_schema_version` (`type`, `version`) VALUES
 ('core', 37),
 ('turnos_', 2),
 ('franjas_', 2),
-('no_laborales_', 2);
+('no_laborales_', 2),
+('medicos_', 1),
+('clinicas_', 1);
 
 -- --------------------------------------------------------
 
@@ -769,11 +791,6 @@ CREATE TABLE IF NOT EXISTS `bf_sessions` (
   PRIMARY KEY (`session_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
---
--- Volcar la base de datos para la tabla `bf_sessions`
---
-
-
 -- --------------------------------------------------------
 
 --
@@ -788,7 +805,7 @@ CREATE TABLE IF NOT EXISTS `bf_settings` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- Volcar la base de datos para la tabla `bf_settings`
+-- Volcado de datos para la tabla `bf_settings`
 --
 
 INSERT INTO `bf_settings` (`name`, `module`, `value`) VALUES
@@ -848,7 +865,7 @@ CREATE TABLE IF NOT EXISTS `bf_states` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=64 ;
 
 --
--- Volcar la base de datos para la tabla `bf_states`
+-- Volcado de datos para la tabla `bf_states`
 --
 
 INSERT INTO `bf_states` (`id`, `name`, `abbrev`) VALUES
@@ -930,11 +947,6 @@ CREATE TABLE IF NOT EXISTS `bf_turnos` (
   PRIMARY KEY (`tid`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
---
--- Volcar la base de datos para la tabla `bf_turnos`
---
-
-
 -- --------------------------------------------------------
 
 --
@@ -965,16 +977,19 @@ CREATE TABLE IF NOT EXISTS `bf_users` (
   `force_password_reset` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `email` (`email`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
--- Volcar la base de datos para la tabla `bf_users`
+-- Volcado de datos para la tabla `bf_users`
 --
 
 INSERT INTO `bf_users` (`id`, `role_id`, `email`, `username`, `password_hash`, `reset_hash`, `last_login`, `last_ip`, `created_on`, `deleted`, `reset_by`, `banned`, `ban_message`, `display_name`, `display_name_changed`, `timezone`, `language`, `active`, `activate_hash`, `password_iterations`, `force_password_reset`) VALUES
 (1, 1, 'situmo@situmo.com.ar', 'situmo', '$2a$08$D9g3e6gDXHZx8EFKtGCUtupeDSIQZzlJd3aA4RqxMgb9fLL7FC9PK', NULL, '2014-04-16 22:13:32', '127.0.0.1', '2014-04-14 00:19:07', 0, NULL, 0, NULL, 'situmo', NULL, 'UM3', 'spanish_am', 1, '', 8, 0),
 (2, 1, 'admin@mybonfire.com', 'admin', '$2a$08$wSORTXWcaX/OZWeXXFN/ROBUORobgIKmIIP6EJ.k4KnnKGk.2PYq2', NULL, '2014-04-15 00:31:05', '127.0.0.1', '2014-04-14 00:19:12', 0, NULL, 0, NULL, 'admin', NULL, 'UM6', 'english', 1, '', 0, 0),
-(3, 7, 'visitante@situmo.com.ar', 'visitante', '$2a$08$pKVBgYibsCdgOP772iUPW.X7SoV2rLNbu/qjGLdhDTU0JjlY9x6W2', NULL, '2014-04-15 02:16:05', '127.0.0.1', '2014-04-15 01:13:49', 0, NULL, 0, NULL, 'Visitante', NULL, 'UM3', 'spanish_am', 1, '', 8, 0);
+(3, 7, 'visitante@situmo.com.ar', 'visitante', '$2a$08$pKVBgYibsCdgOP772iUPW.X7SoV2rLNbu/qjGLdhDTU0JjlY9x6W2', NULL, '2014-04-15 02:16:05', '127.0.0.1', '2014-04-15 01:13:49', 0, NULL, 0, NULL, 'Visitante', NULL, 'UM3', 'spanish_am', 1, '', 8, 0),
+(4, 8, 'paciente@situmo.com.ar', 'paciente', '$2a$08$l.Yy6gtsEna3kv2KrI1fQ.OLozWLhW1lRt6k9SLzPnxlzUc8vQR/a', NULL, '0000-00-00 00:00:00', '', '2014-04-17 01:28:39', 0, NULL, 0, NULL, 'Paciente', NULL, 'UM3', 'spanish_am', 1, '', 8, 0),
+(5, 9, 'medico@situmo.com.ar', 'medico', '$2a$08$xrmo/iL71xRvEhYn513xx.naGEFDkRq8Lg49yRBYUuPnAMvgw0O7y', NULL, '0000-00-00 00:00:00', '', '2014-04-17 01:29:43', 0, NULL, 0, NULL, 'Médico', NULL, 'UM3', 'spanish_am', 1, '', 8, 0),
+(6, 10, 'clinica@situmo.com.ar', 'clinica', '$2a$08$jaE7VkFMMfbxSWgmWnz2iOxTq0zlp53SiPbQC0/VcIfB4FozHDcIK', NULL, '0000-00-00 00:00:00', '', '2014-04-17 01:30:46', 0, NULL, 0, NULL, 'Clínica', NULL, 'UM3', 'spanish_am', 1, '', 8, 0);
 
 -- --------------------------------------------------------
 
@@ -989,11 +1004,6 @@ CREATE TABLE IF NOT EXISTS `bf_user_cookies` (
   KEY `token` (`token`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
---
--- Volcar la base de datos para la tabla `bf_user_cookies`
---
-
-
 -- --------------------------------------------------------
 
 --
@@ -1006,10 +1016,10 @@ CREATE TABLE IF NOT EXISTS `bf_user_meta` (
   `meta_key` varchar(255) NOT NULL DEFAULT '',
   `meta_value` text,
   PRIMARY KEY (`meta_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=21 ;
 
 --
--- Volcar la base de datos para la tabla `bf_user_meta`
+-- Volcado de datos para la tabla `bf_user_meta`
 --
 
 INSERT INTO `bf_user_meta` (`meta_id`, `user_id`, `meta_key`, `meta_value`) VALUES
@@ -1020,7 +1030,19 @@ INSERT INTO `bf_user_meta` (`meta_id`, `user_id`, `meta_key`, `meta_value`) VALU
 (5, 3, 'street_name', 'Rep. de Siria N° 401 esq. Lisandro de la Torre'),
 (6, 3, 'state', 'SC'),
 (7, 3, 'country', 'AR'),
-(8, 3, 'type', 'small');
+(8, 3, 'type', 'small'),
+(9, 4, 'street_name', 'San Pedrito'),
+(10, 4, 'state', 'SC'),
+(11, 4, 'country', 'AR'),
+(12, 4, 'type', 'small'),
+(13, 5, 'street_name', 'Centro'),
+(14, 5, 'state', 'SC'),
+(15, 5, 'country', 'AR'),
+(16, 5, 'type', 'small'),
+(17, 6, 'street_name', 'Centro'),
+(18, 6, 'state', 'SC'),
+(19, 6, 'country', 'AR'),
+(20, 6, 'type', 'small');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
